@@ -46,9 +46,8 @@ accessories:
       - web-replica
 
   load-balancer:
+    host: test-lb
     image: basecamp/kamal-proxy:lb
-    roles:
-      - web
     options:
       publish:
         - 80:80
