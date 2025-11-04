@@ -57,12 +57,47 @@
     justify-content: start;
   }
 
+  /* Column wrapper
+   * To get the drag title to be vertically centered on screen regardless of the
+   * column height, fixed position is required. However, fixed position doesn't
+   * work with an ancestor that has a transform applied (which we're using for
+   * smooth, performant column transitions). Thus: the column wrapper is born.
+  /* -------------------------------------------------------------------------- */
+
+  .cards-wrapper {
+    &:has(.drag-and-drop__hover-container) {
+      &:after {
+        color: var(--card-color);
+        content: attr(data-column-name);
+        font-size: var(--text-x-small);
+        font-weight: 500;
+        line-height: 100dvh;
+        pointer-events: none;
+        position: fixed;
+        text-align: center;
+        text-transform: uppercase;
+        top: 0;
+        translate: -50%;
+        z-index: 1;
+      }
+    }
+
+    &:has(.drag-and-drop__hover-container.is-collapsed) {
+      &:after {
+        line-height: var(--column-width-collapsed);
+        inline-size: 100%;
+        writing-mode: vertical-rl;
+      }
+    }
+  }
+
   /* Column
   /* ------------------------------------------------------------------------ */
 
   .cards {
     --column-color: color-mix(in srgb, var(--card-color) 15%, var(--color-canvas));
 
+    block-size: 100%;
     border-radius: calc(var(--column-width-collapsed) / 2);
     inline-size: var(--column-width-expanded);
     position: relative;
