@@ -34,7 +34,7 @@
     }
 
     &:has(.cards) {
-      min-block-size: 20lh;
+      min-block-size: 82dvh;
     }
 
     @media (max-width: 639px) {
