@@ -224,7 +224,7 @@ export default class extends Controller {
   }
 
   get #hasOpenDialog() {
-    return this.element.querySelector("dialog[open]") !== null
+    return this.element.querySelector("dialog[data-navigable-list-pauses-navigation][open]") !== null
   }
 
   #keyHandlers = {
