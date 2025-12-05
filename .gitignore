@@ -38,6 +38,8 @@
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
+/config/credentials.yml.enc
+.kamal/*
 
 /config/credentials/*.key
 .DS_Store
