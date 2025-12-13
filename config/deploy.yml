@@ -2,12 +2,12 @@ service: fizzy
 image: hhassig/fizzy
 servers:
   web:
-    - 100.97.138.69
-    # - 100.101.246.54
+    # - 100.97.138.69
+    - 100.101.246.54
 proxy:
   ssl: false
-  host: fizzy.h4dev.io
-  # host: fizzy.platoniq.net
+  # host: fizzy.h4dev.io
+  host: fizzy.platoniq.net
 registry:
   server: docker.io
   username: hhassig
